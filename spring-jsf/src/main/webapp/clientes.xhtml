@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:view>
+	<h:head>
+		<title>Ejemplo JSF con Spring</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	</h:head>
+	<h:body>
+		<h1>Listado de Clientes</h1>
+		<h:form>
+			<h:dataTable value="#{clienteController.listadoClientes}" var="cliente">
+				<h:column>
+					<f:facet name="header">	
+						<h:outputLabel value="Apellido1" />
+					</f:facet>
+					<h:outputText value="#{cliente.apellido1}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">	
+						<h:outputLabel value="Apellido2" />
+					</f:facet>
+					<h:outputText value="#{cliente.apellido2}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">	
+						<h:outputLabel value="Primer Nombre" />
+					</f:facet>
+					<h:outputText value="#{cliente.primerNombre}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">	
+						<h:outputLabel value="Segundo Nombre" />
+					</f:facet>
+					<h:outputText value="#{cliente.segundoNombre}" />
+				</h:column>
+			</h:dataTable>
+			<h:commandButton action="#{crearClienteController.mostrarCrearCliente}" value="Nuevo Cliente" />
+		</h:form>
+	</h:body>
+</f:view>
+</html>

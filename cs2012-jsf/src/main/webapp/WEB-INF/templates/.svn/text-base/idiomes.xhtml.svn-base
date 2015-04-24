@@ -1,0 +1,13 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core">
+	<ui:composition>
+		<div id="idiomes">
+			<h:form>		    		
+				<h:commandLink id="cat" styleClass="#{homeBean.language == 'ca' ? 'idioma_actiu_info' : 'idioma_inactiu_info'}" value="CAT" action="#{homeBean.chooseCatalanLanguage}"/>				
+				<h:commandLink id="cast" styleClass="#{homeBean.language == 'es' ? 'idioma_actiu_info' : 'idioma_inactiu_info'}" value="CAST" action="#{homeBean.chooseSpanishLanguage}" />
+			</h:form>
+		</div>
+	</ui:composition>
+</html>

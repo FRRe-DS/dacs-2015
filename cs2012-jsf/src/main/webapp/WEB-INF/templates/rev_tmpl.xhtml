@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h:form id="form">
+			<h:outputStylesheet>
+				.rf-dt-ambitos{
+					width:100%;
+				}
+				#butons span {
+					   float: none;
+				}
+			</h:outputStylesheet>
+			<rich:dataTable value="#{revisionBean.allRevisions}" 
+				iterationStatusVar="it" id="resultTable" var="result" rows="10"
+				styleClass="rf-dt-ambitos">
+       			<rich:column>
+       				<f:facet name="header">
+       					<h:outputText value="#{messages.revisionVersion}"/>
+       				</f:facet>
+       				<h:outputText value="#{result.revision}"/>
+       			</rich:column>
+       			<rich:column>
+       				<f:facet name="header">
+       					<h:outputText value="#{messages.revisionFecha}"/>
+       				</f:facet>
+       				<h:outputText value="#{result.metadata.timestamp}">
+       					<f:convertDateTime type="both" dateStyle="medium" timeStyle="medium"/>
+       				</h:outputText>
+       			</rich:column>
+       			<rich:column>
+       				<f:facet name="header">
+       					<h:outputText value="#{messages.revisionTipo}" />
+       				</f:facet>
+       				<h:outputText value="#{result.type}" 
+       					converter="revisionTypeConverter"/>
+       			</rich:column>
+       			<rich:column>
+       				<f:facet name="header">
+       					<h:outputText value="#{messages.revisionUser}"/>
+       				</f:facet>
+       				<h:outputText value="#{result.metadata.username}"/>
+       			</rich:column>
+       			<rich:column>
+       				<f:facet name="header">
+       					<h:outputText value="#{messages.revisionIr}"/>
+       				</f:facet>
+		        	<h:commandLink action="#{revisionBean.showRevision}">
+       					<h:outputText value="#{messages.revisionIr}"/>
+       					<f:setPropertyActionListener value="#{result}" 
+       						target="#{revisionBean.revision}" />
+						<f:setPropertyActionListener value="#{facesContext.viewRoot.viewId}" 
+							target="#{revisionBean.persistReturnView}" />
+       				</h:commandLink>			        
+       			</rich:column>
+
+       			<f:facet name="footer">
+					<rich:dataScroller rendered="#{fn:length(revisionBean.allRevisions) > 10}" />
+        		</f:facet>
+			</rich:dataTable>
+			<div id="butons">
+				<h:commandButton value="#{messages.back}" 
+					action="#{revisionBean.showMenu}"
+					immediate="true"/>
+			</div>
+		</h:form>	
+	</ui:define>	
+</ui:composition>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ar.edu.utn.frre.cs2012</groupId>
+  	<artifactId>cs2012-webapp</artifactId>
+  	<packaging>war</packaging>
+   	<name>Cliente-Servidor Java EE Web Application</name>
+   	
+	<properties>
+		<poi.version>3.7</poi.version>
+		<org.richfaces.bom.version>4.2.0.Final</org.richfaces.bom.version>
+	</properties>
+   	
+	<parent>
+		<groupId>ar.edu.utn.frre</groupId>
+		<artifactId>cs2012</artifactId>
+		<version>1.0</version>
+	</parent>
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.richfaces</groupId>
+				<artifactId>richfaces-bom</artifactId>
+				<version>${org.richfaces.bom.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>ar.edu.utn.frre.cs2012</groupId>
+		  	<artifactId>cs2012-ejb</artifactId>
+			<version>1.0</version>
+			<type>ejb</type>
+			 <scope>provided</scope>
+		</dependency>
+
+		<!-- Rich Faces -->
+		<dependency>
+			<groupId>org.richfaces.ui</groupId>
+			<artifactId>richfaces-components-ui</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.richfaces.core</groupId>
+			<artifactId>richfaces-core-impl</artifactId>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<!-- JasperReports -->
+		<repository>
+			<id>jasperreports</id>
+			<url>http://jasperreports.sourceforge.net/maven2</url>
+		</repository>
+	</repositories>
+	
+	<build>
+		<finalName>cs2012-webapp</finalName>
+	</build>
+</project>

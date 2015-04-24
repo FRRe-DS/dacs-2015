@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+	<persistence-unit name="FormacioPU" transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:/FormacioDS</jta-data-source>
+		<class>org.altanet.domain.UsuarioOrganizacion</class>
+		<class>org.altanet.domain.Usuario</class>
+		<class>org.altanet.domain.Ubicacion</class>
+		<class>org.altanet.domain.TipoGasto</class>
+		<class>org.altanet.domain.TipoActividad</class>
+		<class>org.altanet.domain.TemaAmbito</class>
+		<class>org.altanet.domain.SesionProfesor</class>
+		<class>org.altanet.domain.SesionAlumno</class>
+		<class>org.altanet.domain.Sesion</class>
+		<class>org.altanet.domain.RespuestaUnica</class>
+		<class>org.altanet.domain.RespuestaPregunta</class>
+		<class>org.altanet.domain.ReservaAula</class>
+		<class>org.altanet.domain.RecursoAudiovisualSesion</class>
+		<class>org.altanet.domain.RecursoAudiovisualAula</class>
+		<class>org.altanet.domain.RecursoAudiovisual</class>
+		<class>org.altanet.domain.Profesor</class>
+		<class>org.altanet.domain.PreguntaCuestionario</class>
+		<class>org.altanet.domain.Postgrado</class>
+		<class>org.altanet.domain.PosgradoMaestria</class>
+		<class>org.altanet.domain.PlantillaMensaje</class>
+		<class>org.altanet.domain.PlantillaCertificado</class>
+		<class>org.altanet.domain.Organizacion</class>
+		<class>org.altanet.domain.NivelEstudio</class>
+		<class>org.altanet.domain.NecesidadFormativa</class>
+		<class>org.altanet.domain.ModuloPosgrado</class>
+		<class>org.altanet.domain.Modulo</class>
+		<class>org.altanet.domain.MinutaHonorario</class>
+		<class>org.altanet.domain.MensajeEnviado</class>
+		<class>org.altanet.domain.MateriaTemaAmbito</class>
+		<class>org.altanet.domain.Maestria</class>
+		<class>org.altanet.domain.LugarTrabajo</class>
+		<class>org.altanet.domain.Inscripcion</class>
+		<class>org.altanet.domain.Gasto</class>
+		<class>org.altanet.domain.EdicionProfesor</class>
+		<class>org.altanet.domain.Edicion</class>
+		<class>org.altanet.domain.DocumentacionProfessor</class>
+		<class>org.altanet.domain.Direccion</class>
+		<class>org.altanet.domain.Cuestionario</class>
+		<class>org.altanet.domain.Coordinador</class>
+		<class>org.altanet.domain.CompetenciaActividadFormativa</class>
+		<class>org.altanet.domain.Competencia</class>
+		<class>org.altanet.domain.Certificado</class>
+		<class>org.altanet.domain.CategoriaProfesional</class>
+		<class>org.altanet.domain.Aula</class>
+		<class>org.altanet.domain.AreaTrabajo</class>
+		<class>org.altanet.domain.ArchivoSubido</class>
+		<class>org.altanet.domain.Ambito</class>
+		<class>org.altanet.domain.Alumno</class>
+		<class>org.altanet.domain.Administrador</class>
+		<class>org.altanet.domain.ActividadFormativa</class>
+		<class>org.altanet.architecture.UsernameRevisionEntity</class>
+		<properties>
+			<property name="hibernate.transaction.manager_lookup_class"
+				value="org.hibernate.transaction.JBossTransactionManagerLookup" />
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.format_sql" value="false" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
+			<!-- Envers Properties -->
+   			<property name="hibernate.ejb.event.post-insert"
+            	value="org.hibernate.ejb.event.EJB3PostInsertEventListener,org.hibernate.envers.event.AuditEventListener" />
+			<property name="hibernate.ejb.event.post-update"
+				value="org.hibernate.ejb.event.EJB3PostUpdateEventListener,org.hibernate.envers.event.AuditEventListener" />
+			<property name="hibernate.ejb.event.post-delete"
+				value="org.hibernate.ejb.event.EJB3PostDeleteEventListener,org.hibernate.envers.event.AuditEventListener" />
+			<property name="hibernate.ejb.event.pre-collection-update"
+				value="org.hibernate.envers.event.AuditEventListener" />
+			<property name="hibernate.ejb.event.pre-collection-remove"
+				value="org.hibernate.envers.event.AuditEventListener" />
+			<property name="hibernate.ejb.event.post-collection-recreate"
+				value="org.hibernate.envers.event.AuditEventListener" />
+			<property name="org.hibernate.envers.versionsTableSuffix" 
+				value="_V" />
+			<property name="org.hibernate.envers.revisionFieldName" 
+				value="ver_rev" />
+			<property name="org.hibernate.envers.audit_strategy"
+              value="org.hibernate.envers.strategy.ValidityAuditStrategy"/>
+		</properties>
+	</persistence-unit>
+
+</persistence>

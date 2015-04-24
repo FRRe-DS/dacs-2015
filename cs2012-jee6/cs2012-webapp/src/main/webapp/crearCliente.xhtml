@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:view>
+	<h:head>
+		<title>Ejemplo JSF con Spring</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	</h:head>
+	<h:body>
+		<h1>Crear Nuevo Cliente</h1>
+		<h:form>
+			<h:panelGrid columns="3">
+				<h:outputLabel for="tipoDocumento" value="Tipo DNI:" />
+				<h:selectOneMenu id="tipoDocumento" value="#{crearClienteController.cliente.tipoDocumento}">
+					<f:selectItems value="#{crearClienteController.tiposDocumentos}"/>
+				</h:selectOneMenu>
+				<h:message for="tipoDocumento"/>
+				
+				<h:outputLabel for="nroDocumento" value="Nro Documento:" />
+				<h:inputText id="nroDocumento" value="#{crearClienteController.cliente.nroDocumento}">
+					<f:convertNumber integerOnly="true"/> />
+				</h:inputText>
+				<h:message for="nroDocumento"/>
+
+				<h:outputLabel for="apellido1" value="Apellido 1:" />
+				<h:inputText id="apellido1" value="#{crearClienteController.cliente.apellido1}"/>
+				<h:message for="apellido1"/>
+
+				<h:outputLabel for="apellido2" value="Apellido 2:" />
+				<h:inputText id="apellido2" value="#{crearClienteController.cliente.apellido2}"/>
+				<h:message for="apellido2"/>
+				
+				<h:outputLabel for="primerNombre" value="Primer Nombre:" />
+				<h:inputText id="primerNombre" value="#{crearClienteController.cliente.primerNombre}"/>
+				<h:message for="primerNombre"/>
+
+				<h:outputLabel for="segundoNombre" value="Segundo Nombre:" />
+				<h:inputText id="segundoNombre" value="#{crearClienteController.cliente.segundoNombre}"/>
+				<h:message for="segundoNombre"/>
+
+				<h:outputLabel for="fechaNacimiento" value="Fecha Nacimiento:" />
+				<h:inputText id="fechaNacimiento" value="#{crearClienteController.cliente.fechaNacimiento}">
+                  <f:convertDateTime pattern="dd/MM/yyyy" />
+              	</h:inputText>
+				<h:message for="fechaNacimiento"/>
+				
+				<h:outputLabel for="direccion1" value="Dirección 1:" />
+				<h:inputText id="direccion1" value="#{crearClienteController.cliente.direccion1}"/>
+				<h:message for="direccion1"/>
+
+				<h:outputLabel for="direccion2" value="Dirección 2:" />
+				<h:inputText id="direccion2" value="#{crearClienteController.cliente.direccion2}"/>
+				<h:message for="direccion2"/>
+
+				<h:outputLabel for="email1" value="Email 1:" />
+				<h:inputText id="email1" value="#{crearClienteController.cliente.email1}"/>
+				<h:message for="email1"/>
+
+				<h:outputLabel for="email2" value="Email 2:" />
+				<h:inputText id="email2" value="#{crearClienteController.cliente.email2}"/>
+				<h:message for="email2"/>
+
+				<h:outputLabel for="telefono1" value="Teléfono 1:" />
+				<h:inputText id="telefono1" value="#{crearClienteController.cliente.telefono1}"/>
+				<h:message for="telefono1"/>
+
+				<h:outputLabel for="telefono2" value="Teléfono 2:" />
+				<h:inputText id="telefono2" value="#{crearClienteController.cliente.telefono2}"/>
+				<h:message for="telefono2"/>
+
+				<h:commandButton action="#{crearClienteController.crearCliente}" 
+					value="Guardar" />
+			</h:panelGrid>
+		</h:form>
+	</h:body>
+</f:view>
+</html>

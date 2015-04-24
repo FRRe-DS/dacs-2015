@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ar.edu.utn.frre.cs.free-cs</groupId>
+	<artifactId>free-cs-ear</artifactId>
+	<packaging>ear</packaging>
+	<name>FRRe Java EE EAR</name>
+
+	<parent>
+		<groupId>ar.edu.utn.frre.cs</groupId>
+		<artifactId>free-cs</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>ar.edu.utn.frre.cs.free-cs</groupId>
+		  	<artifactId>free-cs-webapp</artifactId>
+			<version>1.0</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>ar.edu.utn.frre.cs.free-cs</groupId>
+		  	<artifactId>free-cs-ejb</artifactId>
+			<version>1.0</version>
+			<type>ejb</type>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>free-cs</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.6</version>
+				<!-- configuring the ear plugin -->
+				<configuration>
+					<version>6</version>
+					<modules>
+						<webModule>
+							<groupId>ar.edu.utn.frre.cs.free-cs</groupId>
+						  	<artifactId>free-cs-webapp</artifactId>
+						  	<contextRoot>/free-cs</contextRoot>
+						</webModule>
+						<ejbModule>
+							<groupId>ar.edu.utn.frre.cs.free-cs</groupId>
+						  	<artifactId>free-cs-ejb</artifactId>
+						</ejbModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
