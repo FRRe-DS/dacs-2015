@@ -75,7 +75,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>ar.edu.utn.frre.dacs.persistencia.jdbc.JdbcQuery</mainClass>
+							<mainClass>ar.edu.utn.frre.dacs.persistencia.jpa.JpaDemo</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
