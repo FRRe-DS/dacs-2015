@@ -1,2 +1,0 @@
-Para generar el EAR
-$ mvn clean packge

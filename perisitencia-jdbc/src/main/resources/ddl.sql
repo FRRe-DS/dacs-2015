@@ -1,0 +1,7 @@
+CREATE SCHEMA 'dacs2015';
+
+CREATE TABLE `dacs2015`.`provincia` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`)
+);
