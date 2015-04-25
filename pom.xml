@@ -23,12 +23,14 @@
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<javaee.version>6.0</javaee.version>
 		<architecture.version>0.1.0</architecture.version>
-		<slf4j.version>1.5.10</slf4j.version>
+		<slf4j.version>1.7.12</slf4j.version>
 		<junit.version>4.12</junit.version>
+		<mysql.version>5.1.6</mysql.version>
 	</properties>
   
 	<modules>
 		<module>perisitencia-jdbc</module>
+		<module>perisitencia-jpa</module>
 	</modules>
   
 	<developers>
@@ -67,13 +69,6 @@
 		<name>Facultada Regional Resistencia - Universidad Tecnol&oacute;gica Nacional</name>
 		<url>http://www.frre.utn.edu.ar</url>
 	</organization>
-
-	<!-- Hudson 
-	<ciManagement>
-		<system>Hudson</system>
-		<url>http://srvdesa02/job/BUILD%20-%20Gesti%C3%B3n/</url>
-	</ciManagement>
-	-->
 
 	<!-- Maven Repositories -->
 	<repositories>
@@ -114,6 +109,33 @@
 			</dependency>
 
 			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>6.0</version>
+			</dependency>
+
+			<!-- MySQL Driver -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
+			</dependency>
+			
+			<!-- Loggin -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+	
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<!--  
+			<dependency>
 				<groupId>org.jboss.bom</groupId>
 				<artifactId>jboss-javaee-6.0-with-tools</artifactId>
 				<version>${version.jboss.bom}</version>
@@ -128,7 +150,7 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-						
+					-->	
 		</dependencies>
 	</dependencyManagement>
 
