@@ -15,39 +15,20 @@
  */
 package ar.edu.utn.frre.dacs.persistencia.jpa.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 /**
+ * Sexo de las Personas F&iacute;sicas.
  * @author Dr. Jorge Eduardo Villaverde
- *
+ * @version 1.0
+ * @since 1.0
  */
-@Entity
-@Table(name="provincia", schema="dacs2015")
-public class Provincia extends BaseEntity {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	// Properties -------------------------------------------------------------
-	
-	@Size(max=45)
-	@NotNull
-	@Column(name="nombre")
-	private String nombre;
-
-	// Getters/Setters --------------------------------------------------------
-	
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}	
+public enum Sexo {
+    /**
+     * Sexo Masculino. 
+     */
+    M,
+    
+    /**
+     * Sexo Femenino. 
+     */
+    F;
 }

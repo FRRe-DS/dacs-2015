@@ -15,8 +15,14 @@
  */
 package ar.edu.utn.frre.dacs.persistencia.jpa.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -26,8 +32,8 @@ import javax.validation.constraints.Size;
  *
  */
 @Entity
-@Table(name="provincia", schema="dacs2015")
-public class Provincia extends BaseEntity {
+@Table(name="calle", schema="dacs2015")
+public class Calle extends BaseEntity {
 
 	/**
 	 * 
@@ -40,7 +46,14 @@ public class Provincia extends BaseEntity {
 	@NotNull
 	@Column(name="nombre")
 	private String nombre;
-
+	
+	@OneToMany(mappedBy = "calle",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private Set<Direccion> direcciones 
+    	= new HashSet<Direccion>();	
+	
 	// Getters/Setters --------------------------------------------------------
 	
 	public String getNombre() {
@@ -49,5 +62,14 @@ public class Provincia extends BaseEntity {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}	
+	}
+
+	public Set<Direccion> getDirecciones() {
+		return direcciones;
+	}
+
+	public void setDirecciones(Set<Direccion> direcciones) {
+		this.direcciones = direcciones;
+	}
+
 }
