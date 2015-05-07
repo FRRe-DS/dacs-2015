@@ -31,6 +31,7 @@
 	<modules>
 		<module>perisitencia-jdbc</module>
 		<module>perisitencia-jpa</module>
+		<module>ioc</module>
 	</modules>
   
 	<developers>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<clientes>
+	<cliente>
+		<id>1</id>
+		<nombre>Homero J.</nombre>
+		<apellido>Simpson</apellido>
+		<dni>121151</dni>
+		<telefono>555-1234</telefono>
+		<domicilio>Av. Siempre Viva 742</domicilio>
+	</cliente>
+</clientes>
