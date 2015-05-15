@@ -36,7 +36,7 @@ public class Provincia extends BaseEntity {
 	
 	// Properties -------------------------------------------------------------
 	
-	@Size(max=45)
+	@Size(min=1, max=45)
 	@NotNull
 	@Column(name="nombre")
 	private String nombre;
