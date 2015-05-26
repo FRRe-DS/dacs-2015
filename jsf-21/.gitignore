@@ -48,6 +48,8 @@ local.properties
 # TeXlipse plugin
 .texlipse
 
+# Tern Project
+.tern-project
 
 ### Maven ###
 target/
