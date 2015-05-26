@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+	<f:view>
+		<h:form>
+			<legend>#{messages.tituloPagina1}</legend>
+			<fieldset>
+				<h:outputLabel value="#{messages.campo1}"/>
+				
+				<h:inputText id="campo1"
+					value="#{exampleBean.campo1}"
+					maxlength="10">
+					<f:ajax event="change"
+						execute="@this"/>
+				</h:inputText>	
+					
+				<h:message for="campo1" style="color: red;"/>		
+			</fieldset>
+				<!-- 
+				rendered="#{! empty exampleBean.campo1}"
+				 -->			
+			<h:commandButton id="submit"
+				action="#{exampleBean.hacerAlgo}"
+				value="#{messages.submit}">
+			</h:commandButton>
+		</h:form>
+	</f:view>
+</ui:composition>

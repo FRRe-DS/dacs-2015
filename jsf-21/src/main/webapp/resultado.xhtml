@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+	<f:metadata>
+        <f:viewParam name="campo1" value="#{exampleBean.campo1}" />
+    </f:metadata>
+    <f:view>
+		<h:form>
+			<legend>#{messages.tituloPagina1}</legend>
+			<fieldset>
+				<h:outputLabel value="#{messages.campo1}: "/>
+				<h:outputText value="#{exampleBean.campo1}"/>
+			</fieldset>
+		</h:form>
+	</f:view>
+</ui:composition>
