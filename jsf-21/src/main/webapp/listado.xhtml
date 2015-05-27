@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/template.xhtml">
+
+	<ui:define name="contenido">
+		<h2>Listado de Clientes</h2>
+		<h:form id="listForm">
+			<h:dataTable id="listaClientes" value="#{clienteBean.clientes}" var="cliente">
+				<h:column>
+					<f:facet name="header">#{messages.clienteId}</f:facet>
+					<h:outputText value="#{cliente.id}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">#{messages.clienteNombre}</f:facet>
+					<h:outputText value="#{cliente.nombre}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">#{messages.clienteApellido}</f:facet>
+					<h:outputText value="#{cliente.apellido}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">#{messages.clienteFechaNacimiento}</f:facet>
+					<h:outputText value="#{cliente.fechaNacimiento}">
+						<f:convertDateTime pattern="dd/MM/yyyy"/>
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header"></f:facet>
+					<h:link outcome="modificacion">
+						<h:outputText value="#{messages.modificar}" />
+						<f:param name="id" value="#{cliente.id}"/>
+					</h:link>
+					<h:link outcome="mostrar">
+						<h:outputText value="#{messages.mostrar}" />
+						<f:param name="id" value="#{cliente.id}"/>
+					</h:link>
+					<h:commandLink action="#{clienteBean.borrarCliente(cliente)}">
+						<f:ajax render="listaClientes" />
+						<h:outputText value="#{messages.borrar}" />
+					</h:commandLink>
+				</h:column>
+			</h:dataTable>
+			
+			<h:link outcome="home.xhtml">Volver</h:link>	
+		</h:form>
+	</ui:define>
+</ui:composition>

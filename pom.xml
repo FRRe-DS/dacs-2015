@@ -19,8 +19,8 @@
 		<version.ejb.plugin>2.3</version.ejb.plugin>
 		<version.surefire.plugin>2.4.3</version.surefire.plugin>
 		<version.war.plugin>2.1.1</version.war.plugin>
-		<maven.compiler.target>1.6</maven.compiler.target>
-		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.source>1.7</maven.compiler.source>
 		<javaee.version>6.0</javaee.version>
 		<architecture.version>0.1.0</architecture.version>
 		<slf4j.version>1.7.12</slf4j.version>

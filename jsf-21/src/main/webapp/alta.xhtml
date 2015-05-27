@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+	<f:view>
+		<h2>#{messages.clienteAlta}</h2>
+		<h:form id="myForm">
+			<table>
+				<tbody>
+					<tr>
+						<td style="text-align: right;">
+							<h:outputLabel value="#{messages.clienteId}:"/>
+						</td>
+						<td>
+							<h:inputText id="id"
+								value="#{clienteBean.cliente.id}"
+								style="left-margin:5px;"
+								maxlength="10">
+							</h:inputText>						
+						</td>
+						<td>
+							<h:message for="id" style="color: red;"/>
+						</td>						
+					</tr>
+					<tr>
+						<td style="text-align: right;">
+							<h:outputLabel value="#{messages.clienteNombre}:"/></td>
+						<td>
+							<h:inputText id="nombre"
+								value="#{clienteBean.cliente.nombre}"
+								style="left-margin:5px;"
+								maxlength="50">
+							</h:inputText>						
+						</td>
+						<td>
+							<h:message for="nombre" style="color: red;"/>
+						</td>						
+					</tr>
+					<tr>
+						<td style="text-align: right;">
+							<h:outputLabel value="#{messages.clienteApellido}:"/></td>
+						<td>
+							<h:inputText id="apellido"
+								value="#{clienteBean.cliente.apellido}"
+								style="left-margin:5px;"
+								maxlength="50">
+							</h:inputText>						
+						</td>
+						<td>
+							<h:message for="apellido" style="color: red;"/>
+						</td>						
+					</tr>
+					<tr>
+						<td style="text-align: right;">
+							<h:outputLabel value="#{messages.clienteFechaNacimiento}:"/></td>
+						<td>
+							<h:inputText id="fechaNacimiento"
+								value="#{clienteBean.cliente.fechaNacimiento}"
+								style="left-margin:5px;">
+								<f:convertDateTime pattern="dd/MM/yyyy"/>
+							</h:inputText>						
+						</td>
+						<td>
+							<h:message for="fechaNacimiento" style="color: red;"/>
+						</td>						
+					</tr>
+					<tr>
+						<td>
+							<h:button outcome="listado.xhtml" value="#{messages.back}"/>
+						</td>
+						<td>
+							<h:commandButton id="submit"
+								action="#{clienteBean.crearCliente}"
+								value="#{messages.submit}">
+							</h:commandButton>
+						</td>
+						<td></td>						
+					</tr>
+				</tbody>			
+			</table>
+		</h:form>
+	</f:view>
+</ui:composition>
